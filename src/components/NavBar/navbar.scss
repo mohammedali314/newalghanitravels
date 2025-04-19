@@ -1,0 +1,200 @@
+:root {
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(201, 33%, 16%);
+    --textColor: hsl(240, 4%, 36%);
+    --whiteColorDeam: hsl(0, 0%, 93%);
+    --grayText: rgb(190, 190, 190);
+    --inputColor: rgb(239, 239, 239);
+    --bodyColor: rgb(240, 240, 240);
+    --CardBG: rgb(225, 225, 225);
+  }
+  
+  .header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--whiteColorDeam);
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(2, 15, 29, 0.285);
+  
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--blackColor);
+  
+      .logo-img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+      }
+  
+      @media screen and (max-width: 768px) {
+        .main-logo {
+          height: 40px;
+        }
+      }
+  
+      .icon {
+        font-size: 25px;
+        color: var(--PrimaryColor);
+        transform: translateY(5px);
+      }
+    }
+  
+    @media screen and (max-width: 768px) {
+      .navBar {
+        position: absolute;
+        background: var(--whiteColorDeam);
+        height: max-content;
+        width: 80%;
+        border-radius: 1rem;
+        top: -500rem;
+        left: 50%;
+        padding: 1rem;
+        transform: translate(-50%);
+        z-index: 2000;
+        box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
+        transition: 0.3s ease-in-out;
+  
+        .navLists {
+          flex-direction: column;
+          justify-content: center;
+          width: 100%;
+          margin: auto;
+          padding: 0.5rem 0;
+  
+          .navItem {
+            padding: 0.5rem 0;
+          }
+  
+          .navLink {
+            color: var(--textColor);
+            font-size: 0.9rem;
+            font-weight: 600;
+  
+            &:hover {
+              color: var(--PrimaryColor);
+            }
+          }
+        }
+  
+        .btn {
+          color: var(--textColor);
+          border-radius: 50px;
+          padding: 0.8rem 1.5rem;
+          background: var(--gradientColor);
+          transition: all 0.3s ease;
+          font-weight: 500;
+          border: none;
+          cursor: pointer;
+  
+          &:hover {
+            background: var(--SecondaryColor);
+            // color: var(--whiteColor);
+            transform: translateY(-2px);
+          }
+        }
+  
+        .closeNavBar {
+          position: absolute;
+          top: 1rem;
+          right: 1.5rem;
+          color: var(--PrimaryColor);
+  
+          &:hover {
+            color: var(--SecondaryColor);
+          }
+        }
+      }
+  
+      .activeNavBar {
+        top: 7rem;
+      }
+    }
+  
+    .toggleNavBar {
+      .icon {
+        font-size: 25px;
+        color: var(--PrimaryColor);
+  
+        &:hover {
+          color: var(--SecondaryColor);
+        }
+      }
+    }
+  }
+  
+  // Media Queries ##############################################
+  
+  @media screen and (min-width: 769px) {
+    .toggleNavBar,
+    .closeNavBar {
+      display: none;
+    }
+  
+    .header {
+      padding: 1.5rem 2rem;
+    }
+  
+    .navBar {
+      .navLists {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+  
+        .navItem {
+          padding: 0 0.55rem;
+        }
+  
+        .navLink {
+          color: var(--textColor);
+          font-size: 1rem;
+          font-weight: 500;
+  
+          &:hover {
+            color: var(--PrimaryColor);
+          }
+        }
+  
+        .btn {
+          margin-left: 1rem;
+
+  
+          a {
+            color: var(--whiteColor);
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width: 960px) {
+    .header {
+      .navBar {
+        .navLists {
+          .navItem {
+            padding: 0 0.7rem;
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width: 1240px) {
+    .header {
+      padding: 1rem 8.5rem;
+    }
+  }
+  
