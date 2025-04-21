@@ -53,8 +53,8 @@ const Contact = () => {
               </div>
               <div className="info-content">
                 <h3>Call Us</h3>
-                <p>+1 234 567 890</p>
-                <span className="availability">Mon-Fri from 8am to 5pm</span>
+                <p>+92 301 6262050</p>
+                <span className="availability">Mon-Sun from 9am to 6pm</span>
               </div>
             </div>
 
@@ -64,7 +64,7 @@ const Contact = () => {
               </div>
               <div className="info-content">
                 <h3>Email Us</h3>
-                <p>info@alghani.com</p>
+                <p>info@newalghani.com</p>
                 <span className="availability">We'll respond within 24 hours</span>
               </div>
             </div>
@@ -75,8 +75,8 @@ const Contact = () => {
               </div>
               <div className="info-content">
                 <h3>Visit Us</h3>
-                <p>123 Business Street, City, Country</p>
-                <span className="availability">Open Monday - Friday</span>
+                <p>Shop No.6944,18:70 3 Star Market,Karianwala,Gujrat</p>
+                <span className="availability">Open Monday - Sunday</span>
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@ const Contact = () => {
                   onChange={handleChange}
                   onFocus={() => setFocusedInput('name')}
                   onBlur={() => setFocusedInput(null)}
-                  placeholder="John Doe"
+                  placeholder="M Ali"
                   required
                 />
               </div>
@@ -126,7 +126,7 @@ const Contact = () => {
                   onChange={handleChange}
                   onFocus={() => setFocusedInput('email')}
                   onBlur={() => setFocusedInput(null)}
-                  placeholder="john@example.com"
+                  placeholder="Ali@example.com"
                   required
                 />
               </div>

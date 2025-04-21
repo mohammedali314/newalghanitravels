@@ -35,11 +35,8 @@ const App = () => {
                 <About />
               </>
             } />
-            <Route path="/packages" element={<ComingSoon />} />
-            <Route path="/shop" element={<ComingSoon />} />
-            <Route path="/about" element={<ComingSoon />} />
-            <Route path="/pages" element={<ComingSoon />} />
-            <Route path="/news" element={<ComingSoon />} />
+            <Route path="/testimonials" element={<ComingSoon />} />
+            <Route path="/team" element={<ComingSoon />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

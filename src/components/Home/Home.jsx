@@ -68,7 +68,8 @@ const Home = ({ onSearch }) => {
             <button className='btn'>One Way</button>
             <button className='btn'>Round Trip</button>
             <button className='btn'>Group Booking</button>
-            <button className='btn'>Multi City</button>
+            <button className='btn'>Umrah/Hajj</button>
+            {/* <button className='btn'>Multi City</button> */}
             <select>
               <option>Select Class</option>
               <option>Economy</option>

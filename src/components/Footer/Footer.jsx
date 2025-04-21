@@ -82,7 +82,7 @@ const Footer = () => {
         </div>
 
         <div className="copyright">
-          <p>&copy; {new Date().getFullYear()} Alghani Travels. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} New Alghani Travels. All rights reserved.</p>
         </div>
       </div>
     </footer>
