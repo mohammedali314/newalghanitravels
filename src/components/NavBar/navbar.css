@@ -201,4 +201,19 @@
     padding: 1rem 8.5rem;
   }
 }
+
+.btn {
+    padding: .6rem 1.5rem;
+    background: var(--gradientColor);
+    border-radius: 3rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn a, .btn {
+    color: var(--whiteColor) !important;
+    font-weight: 500;
+    text-decoration: none;
+}
 /*# sourceMappingURL=navbar.css.map */

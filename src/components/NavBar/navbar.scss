@@ -20,8 +20,10 @@
     background: var(--whiteColorDeam);
     width: 100%;
     padding: 1rem;
-    z-index: 1000;
+    z-index: 9999;
     box-shadow: 0 2px 4px rgba(2, 15, 29, 0.285);
+    top: 0;
+    left: 0;
   
     .logo {
       display: flex;
@@ -89,7 +91,7 @@
         }
   
         .btn {
-          color: var(--textColor);
+          color: #fff;
           border-radius: 50px;
           padding: 0.8rem 1.5rem;
           background: var(--gradientColor);
@@ -168,6 +170,7 @@
         }
   
         .btn {
+          color: #fff;
           margin-left: 1rem;
 
   
@@ -195,6 +198,9 @@
   @media screen and (min-width: 1240px) {
     .header {
       padding: 1rem 8.5rem;
+    }
+    .btn{
+      color: #fff;
     }
   }
   
