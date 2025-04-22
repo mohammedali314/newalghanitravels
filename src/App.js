@@ -8,6 +8,8 @@ import About from "./components/About/About.jsx";
 import SearchResults from "./components/SearchResult/SearchResult.jsx";
 import Contact from "./components/ContactUs/Contact.jsx";
 import ComingSoon from "./components/ComingSoon/ComingSoon.jsx";
+import Testimonial from "./components/Testimonial/Testimonial.jsx";
+import Team from "./components/Team/Team.jsx";
 
 const App = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -35,8 +37,8 @@ const App = () => {
                 <About />
               </>
             } />
-            <Route path="/testimonials" element={<ComingSoon />} />
-            <Route path="/team" element={<ComingSoon />} />
+            <Route path="/testimonials" element={<Testimonial />} />
+            <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
