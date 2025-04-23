@@ -16,22 +16,22 @@ const Footer = () => {
              <div className="linkGroup">
               <h3> Quick Links</h3>
               <ul>
-                <li><a href="/contact">Home</a></li>
-                <li><a href="/faq">About US</a></li>
-                <li><a href="/terms">Testimonials</a></li>
-                <li><a href="/privacy">Our Team</a></li>
-                <li><a href="/refund">Contact Us</a></li>
+                <li><a href="/">Home</a></li>
+                {/* <li><a href="/about">About US</a></li> */}
+                <li><a href="/testimonials">Testimonials</a></li>
+                <li><a href="/team">Our Team</a></li>
+                <li><a href="/contact">Contact Us</a></li>
               </ul>
             </div>
             
             <div className="linkGroup">
               <h3>Services</h3>
               <ul>
-                <li><a href="/business">Business Travel</a></li>
-                <li><a href="/group">Group Travel</a></li>
-                <li><a href="/umrah">Umrah Packages</a></li>
-                <li><a href="/visa">Visa Services</a></li>
-                <li><a href="/insurance">Travel Insurance</a></li>
+                <li><a href="/coming-soon">Business Travel</a></li>
+                <li><a href="/coming-soon">Group Travel</a></li>
+                <li><a href="/coming-soon">Umrah Packages</a></li>
+                <li><a href="/coming-soon">Visa Services</a></li>
+                {/* <li><a href="/insurance">Travel Insurance</a></li> */}
               </ul>
             </div>
           </div>

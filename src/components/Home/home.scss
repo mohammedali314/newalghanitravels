@@ -1,5 +1,6 @@
 :root {
-    --PrimaryColor: hsl(199, 100%, 33%);
+    --PrimaryColor: #0071c2;
+    --PrimaryColorHover: #005999;
     --SecondaryColor: hsl(187, 85%, 43%);
     --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
     --whiteColor: hsl(0, 0%, 100%);
@@ -36,11 +37,10 @@
         position: absolute;
         height: 100%;
         width: 100%;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.6);
         top: 0;
         bottom: 0;
         z-index: 1;
-        mix-blend-mode: hard-light;
     }
 
     .video {
@@ -61,163 +61,326 @@
         align-items: center;
         justify-content: center;
         gap: 3rem;
-        color: var(--whiteColor);
         z-index: 100;
 
         .textDiv {
             text-align: center;
-            padding: 2rem 0;
-            animation: slideUp 1s ease forwards;
+            color: white;
 
-            .smallText {
-                font-size: 16px;
-                text-transform: uppercase;
-                font-weight: 500;
-                letter-spacing: 2px;
+            .mainTitle {
+                font-size: 48px;
+                font-weight: 700;
+                margin-bottom: 16px;
+                letter-spacing: 1px;
             }
 
-            .homeTitle {
-                position: relative;
-                font-size: 3rem;
-                font-weight: 700;
-                margin: 1rem 0;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            .subTitle {
+                font-size: 24px;
+                font-weight: 400;
+                color: rgba(255, 255, 255, 0.9);
             }
         }
 
         .cardDiv {
-            position: relative;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            gap: 1rem;
-            width: 100%;
-            max-width: 900px;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: slideUp 1s ease forwards;
-            animation-delay: 0.3s;
-            opacity: 0;
-            transform: translateY(100px);
+            background: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 1200px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
-            .filterOptions {
+            .tripTypeNav {
                 display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 1rem;
-                justify-content: center;
-                margin-bottom: 2rem;
-                padding-bottom: 1.5rem;
-                border-bottom: 1px solid var(--grayText);
+                gap: 0;
+                border-bottom: 1px solid #e7e7e7;
 
-                .btn {
-                    color: var(--blackColor) !important;
-                    border-radius: 50px;
-                    padding: 0.8rem 1.5rem;
-                    background: var(--inputColor);
-                    transition: all 0.3s ease;
-                    font-weight: 500;
-                    border: none;
-                    cursor: pointer;
+                .tripTypeGroup {
+                    display: flex;
+                    gap: 0;
+                    margin-right: 16px;
+                    border-right: 1px solid #e7e7e7;
 
-                    &:hover {
-                        background: var(--SecondaryColor);
-                        color: var(--whiteColor) !important;
-                        transform: translateY(-2px);
+                    .navBtn {
+                        min-width: 120px;
                     }
                 }
 
-                select {
-                    padding: 0.8rem 1.5rem;
-                    border-radius: 50px;
-                    background: var(--inputColor);
+                .navBtn {
+                    padding: 16px 24px;
                     border: none;
-                    outline: none;
-                    color: var(--textColor);
+                    background: none;
+                    color: #262626;
+                    font-size: 14px;
                     cursor: pointer;
+                    transition: all 0.2s ease;
                     font-weight: 500;
+                    white-space: nowrap;
+                    border-bottom: 2px solid transparent;
+
+                    &.active {
+                        color: var(--PrimaryColor);
+                        border-bottom: 2px solid var(--PrimaryColor);
+                    }
+
+                    &:hover:not(.active) {
+                        background: rgba(0, 113, 194, 0.04);
+                        color: var(--PrimaryColor);
+                    }
                 }
             }
 
-            .searchInputs {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr) auto;
-                gap: 1.5rem;
-                margin-bottom: 1.5rem;
-                width: 100%;
-                align-items: flex-end;
+            .searchForm {
+                padding: 24px;
 
-                .originInput,
-                .destinationInput,
-                .DateInput {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.5rem;
+                &.multiCity {
+                    .flightSegment {
+                        background: #f8f9fa;
+                        border-radius: 8px;
+                        padding: 20px;
+                        margin-bottom: 16px;
 
-                    label {
-                        color: var(--textColor);
-                        font-weight: 500;
-                        font-size: 14px;
+                        .segmentHeader {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 16px;
+
+                            .segmentTitle {
+                                font-size: 16px;
+                                font-weight: 600;
+                                color: #333;
+                            }
+
+                            .removeFlightBtn {
+                                padding: 8px 16px;
+                                border: 1px solid #dc3545;
+                                background: transparent;
+                                color: #dc3545;
+                                font-size: 14px;
+                                border-radius: 4px;
+                                cursor: pointer;
+                                transition: all 0.2s ease;
+
+                                &:hover {
+                                    background: #dc3545;
+                                    color: white;
+                                }
+                            }
+                        }
+
+                        .formRow {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 16px;
+                        }
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
                     }
 
-                    .input {
-                        height: 45px;
-                        padding: 0 1.5rem;
-                        background: var(--inputColor);
-                        border-radius: 50px;
-                        display: flex;
-                        align-items: center;
-                        transition: all 0.3s ease;
+                    .addFlightSection {
+                        padding: 16px 0;
+                        border-bottom: 1px solid #e7e7e7;
+                        margin-bottom: 24px;
 
-                        &:hover {
-                            background: var(--whiteColorDeam);
-                        }
-
-                        .icon {
+                        .addFlightBtn {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            padding: 12px 24px;
+                            border: 2px dashed var(--PrimaryColor);
+                            background: rgba(0, 113, 194, 0.04);
                             color: var(--PrimaryColor);
-                            margin-right: 0.5rem;
-                        }
-
-                        input {
-                            background: none;
-                            border: none;
-                            outline: none;
-                            width: 100%;
                             font-size: 14px;
                             font-weight: 500;
-                            color: var(--textColor);
+                            border-radius: 4px;
+                            cursor: pointer;
+                            transition: all 0.2s ease;
 
-                            &::placeholder {
+                            .addFlightIcon {
+                                font-size: 18px;
+                            }
+
+                            &:hover {
+                                background: rgba(0, 113, 194, 0.08);
+                                border-style: solid;
+                            }
+                        }
+                    }
+
+                    .passengerDetails {
+                        margin-bottom: 24px;
+
+                        .formRow {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 16px;
+                        }
+                    }
+                }
+
+                .formRow {
+                    display: grid;
+                    grid-template-columns: 1.5fr 1.5fr 1fr 0.8fr 0.8fr;
+                    gap: 16px;
+                    margin-bottom: 24px;
+
+                    .inputGroup {
+                        min-width: 0;
+                        transition: all 0.3s ease;
+
+                        &.shorter {
+                            grid-column: span 1;
+                        }
+
+                        label {
+                            display: block;
+                            margin-bottom: 8px;
+                            color: #333;
+                            font-weight: 500;
+                            font-size: 14px;
+                        }
+
+                        .input {
+                            position: relative;
+
+                            input, select {
+                                width: 100%;
+                                padding: 12px;
+                                padding-left: 36px;
+                                border: 1px solid #dadada;
+                                border-radius: 4px;
                                 font-size: 14px;
-                                color: var(--grayText);
+                                color: #333;
+                                height: 48px;
+                                background: white;
+                                transition: all 0.2s ease;
+
+                                &:hover {
+                                    border-color: #bdbdbd;
+                                }
+
+                                &:focus {
+                                    outline: none;
+                                    border-color: var(--PrimaryColor);
+                                    box-shadow: 0 0 0 3px rgba(0, 113, 194, 0.1);
+                                }
+
+                                &::placeholder {
+                                    color: #999;
+                                }
+                            }
+
+                            select {
+                                appearance: none;
+                                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                                background-repeat: no-repeat;
+                                background-position: right 12px center;
+                                background-size: 16px;
+                                padding-right: 40px;
+                            }
+
+                            &.dateInput {
+                                input {
+                                    padding-right: 80px;
+                                }
+
+                                .dateControls {
+                                    position: absolute;
+                                    right: 8px;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    display: flex;
+                                    gap: 4px;
+
+                                    .dateNav {
+                                        padding: 8px;
+                                        border: none;
+                                        background: none;
+                                        color: #666;
+                                        cursor: pointer;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        border-radius: 4px;
+                                        transition: all 0.2s ease;
+
+                                        &:hover {
+                                            background: rgba(0, 0, 0, 0.04);
+                                            color: #333;
+                                        }
+
+                                        svg {
+                                            width: 16px;
+                                            height: 16px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .icon {
+                                position: absolute;
+                                left: 12px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                color: #666;
+                                font-size: 18px;
+                                pointer-events: none;
+
+                                &.dropdownIcon {
+                                    left: auto;
+                                    right: 12px;
+                                }
                             }
                         }
                     }
                 }
 
-                .SearchBtn {
-                    margin-bottom: 2px;
-                    
-                    .btn {
-                        height: 45px;
-                        padding: 0 2rem;
-                        background: var(--gradientColor);
-                        color: var(--whiteColor);
+                .formActions {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-top: 24px;
+                    border-top: 1px solid #e7e7e7;
+
+                    .advancedSearchBtn {
+                        padding: 12px 0;
                         border: none;
-                        border-radius: 50px;
-                        font-weight: 600;
+                        background: none;
+                        color: var(--PrimaryColor);
+                        font-size: 14px;
                         cursor: pointer;
-                        transition: all 0.3s ease;
-                        font-size: 16px;
-                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+                        font-weight: 500;
+                        transition: color 0.2s ease;
 
                         &:hover {
-                            transform: translateY(-2px);
-                            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                            color: var(--PrimaryColorHover);
+                        }
+                    }
+
+                    .searchBtn {
+                        padding: 12px 32px;
+                        border: none;
+                        background: var(--PrimaryColor);
+                        color: white;
+                        font-size: 16px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-weight: 500;
+                        min-width: 140px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        transition: all 0.2s ease;
+
+                        .searchIcon {
+                            font-size: 20px;
                         }
 
-                        &:active {
-                            transform: translateY(0);
+                        &:hover {
+                            background: var(--PrimaryColorHover);
+                            transform: translateY(-1px);
                         }
                     }
                 }
@@ -232,73 +395,55 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: #00294B;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
 
-  .loading-content {
+  .loading-content {    
     text-align: center;
-    color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    justify-content: center;
 
     .loading-logo {
-      width: 200px;
-      height: auto;
-      margin-bottom: 1rem;
-      animation: pulse 2s infinite;
+      width: 150px;
+      margin-bottom: 2rem;
     }
 
     .loading-spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid rgba(255, 255, 255, 0.3);
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #0071c2;
       border-radius: 50%;
-      border-top-color: #fff;
-      animation: spin 1s ease-in-out infinite;
+      animation: spin 1s linear infinite;
     }
   }
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 // Media Queries
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 1200px) {
     .home {
         .homeContent {
             .cardDiv {
-                .searchInputs {
-                    grid-template-columns: repeat(2, 1fr);
-                    
-                    .SearchBtn {
-                        grid-column: 1 / -1;
-                        width: 100%;
-                        
-                        .btn {
-                            width: 100%;
+                width: 95%;
+                
+                .searchForm {
+                    .formRow {
+                        grid-template-columns: repeat(2, 1fr);
+
+                        .inputGroup {
+                            &.shorter {
+                                grid-column: span 1;
+                            }
                         }
                     }
                 }
@@ -307,18 +452,62 @@
     }
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 768px) {
     .home {
         .homeContent {
+            padding: 4rem 1rem;
+
+            .textDiv {
+                .mainTitle {
+                    font-size: 36px;
+                }
+
+                .subTitle {
+                    font-size: 20px;
+                }
+            }
+
             .cardDiv {
-                .searchInputs {
-                    grid-template-columns: 1fr;
-                    
-                    .SearchBtn {
+                width: 100%;
+
+                .tripTypeNav {
+                    .tripTypeGroup {
+                        margin-right: 0;
+                        border-right: none;
                         width: 100%;
                         
-                        .btn {
-                            width: 100%;
+                        .navBtn {
+                            flex: 1;
+                            min-width: 0;
+                        }
+                    }
+                }
+
+                .searchForm {
+                    .formRow {
+                        grid-template-columns: 1fr;
+
+                        .inputGroup {
+                            &.shorter {
+                                grid-column: span 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Add hover effects for interactive elements
+.cardDiv {
+    .searchForm {
+        .formRow {
+            .inputGroup {
+                .input {
+                    input, select {
+                        &:hover {
+                            border-color: #0071c2;
                         }
                     }
                 }

@@ -44,13 +44,13 @@ const testimonials = [
     role: 'Adventure Seeker',
     image: 'https://randomuser.me/api/portraits/men/4.jpg',
     rating: 5,
-    comment: 'I\'ve used this service for multiple international trips and have never been disappointed. The prices are competitive and the service is top-notch.',
+    comment: "I've used this service for multiple international trips and have never been disappointed. The prices are competitive and the service is top-notch.",
     tripType: 'Adventure',
     date: 'December 2023'
   },
   {
     id: 5,
-    name: 'Aisha Khan',
+    name: 'Ayesha Kanwal',
     role: 'Hajj Pilgrim',
     image: 'https://randomuser.me/api/portraits/women/5.jpg',
     rating: 5,
@@ -88,6 +88,8 @@ const Testimonial = () => {
             slidesPerView={1}
             pagination={{ clickable: true }}
             navigation
+            loop={true}
+            loopFillGroupWithBlank={true}
             breakpoints={{
               640: {
                 slidesPerView: 2,
@@ -140,4 +142,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial; 
+export default Testimonial;
