@@ -64,7 +64,7 @@ const Home = ({ onSearch }) => {
       {isLoading && (
         <div className="loading-screen">
           <div className="loading-content">
-            <img src={logo} alt="Alghani Travels Logo" className="loading-logo" />
+            <img src={logo} alt="New Alghani Travels Logo" className="loading-logo" />
             <div className="loading-spinner"></div>
           </div>
         </div>
