@@ -10,10 +10,13 @@ import Contact from "./components/ContactUs/Contact.jsx";
 import ComingSoon from "./components/ComingSoon/ComingSoon.jsx";
 import Testimonial from "./components/Testimonial/Testimonial.jsx";
 import Team from "./components/Team/Team.jsx";
+import AdminDashboard from "./components/AdminDashboard/AdminDashboard.jsx";
+import Profile from './components/Profile';
 
 const App = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const handleSearch = (results) => {
     setSearchResults(results);
@@ -26,21 +29,12 @@ const App = () => {
         <Navbar />
         <main>
           <Routes>
-            <Route path="/" element={
-              <>
-                <Home onSearch={handleSearch} />
-                {hasSearched && searchResults.length > 0 && (
-                  <div className="searchResultsContainer">
-                    <SearchResults results={searchResults} />
-                  </div>
-                )}
-                <About />
-              </>
-            } />
+            <Route path="/" element={user ? <Profile /> : <Home onSearch={handleSearch} />} />
             <Route path="/testimonials" element={<Testimonial />} />
             <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/coming-soon" element={<ComingSoon />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Routes>
         </main>
         <Footer />
