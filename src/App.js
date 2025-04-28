@@ -5,7 +5,6 @@ import Home from "./components/Home/Home.jsx";
 import Navbar from "./components/NavBar/Navbar.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import About from "./components/About/About.jsx";
-import SearchResults from "./components/SearchResult/SearchResult.jsx";
 import Contact from "./components/ContactUs/Contact.jsx";
 import ComingSoon from "./components/ComingSoon/ComingSoon.jsx";
 import Testimonial from "./components/Testimonial/Testimonial.jsx";

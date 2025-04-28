@@ -84,10 +84,10 @@ const Contact = () => {
           <div className="social-links">
             <h3>Follow Us</h3>
             <div className="social-icons">
-              <a href="#" className="social-icon"><FontAwesomeIcon icon={faFacebook} /></a>
-              <a href="#" className="social-icon"><FontAwesomeIcon icon={faTwitter} /></a>
-              <a href="#" className="social-icon"><FontAwesomeIcon icon={faInstagram} /></a>
-              <a href="#" className="social-icon"><FontAwesomeIcon icon={faLinkedin} /></a>
+              <a href="https://facebook.com" className="social-icon" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} /></a>
+              <a href="https://twitter.com" className="social-icon" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faTwitter} /></a>
+              <a href="https://instagram.com" className="social-icon" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} /></a>
+              <a href="https://linkedin.com" className="social-icon" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
             </div>
           </div>
         </div>

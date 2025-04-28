@@ -17,7 +17,7 @@ const Home = ({ onSearch }) => {
   const [passengers, setPassengers] = useState('1 Passenger');
   const [travelClass, setTravelClass] = useState('Economy');
   const [isLoading, setIsLoading] = useState(true);
-  const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
+  // const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
   const [multiCityFlights, setMultiCityFlights] = useState([
     { id: 1, from: '', to: '', date: '' }
   ]);
