@@ -12,7 +12,7 @@ import Testimonial from "./components/Testimonial/Testimonial.jsx";
 import Team from "./components/Team/Team.jsx";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard.jsx";
 import Profile from './components/Profile';
-import NotFound from './components/NotFound';
+import NotFound from './components/NotFound/NotFound.jsx';
 
 const App = () => {
   return (
