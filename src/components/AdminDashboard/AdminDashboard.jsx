@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './AdminDashboard.scss';
 import { FiUsers, FiCalendar, FiPlusCircle, FiLogOut, FiMenu, FiSearch, FiPlus } from 'react-icons/fi';
 import { TbPlaneInflight } from 'react-icons/tb';
@@ -16,7 +16,7 @@ const AdminDashboard = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       setLoading(true);
       if (activeSection === 'flights') {
@@ -34,11 +34,11 @@ const AdminDashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
-  
+  }, [activeSection]);
+
   useEffect(() => {
     fetchData();
-  }, [activeSection, fetchData]);
+  }, [fetchData]);
 
   const handleAgentStatus = async (agentId, status) => {
     try {
