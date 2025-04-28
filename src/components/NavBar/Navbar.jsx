@@ -61,9 +61,11 @@ const Navbar = () => {
                   </div>
                   {dropdown && (
                     <div className="profile-dropdown" style={{position: 'absolute', right: 0, top: 48, background: '#fff', borderRadius: 10, boxShadow: '0 4px 16px rgba(30,41,59,0.10)', padding: '1rem', minWidth: 180, zIndex: 10, display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-                      <div className="profile-name" style={{fontWeight: 700, color: '#2563eb'}}>{user?.name}</div>
+                      <div className="profile-name" style={{fontWeight: 700, color: '#2563eb'}}>
+                        {user?.name || user?.username || 'Agent'}
+                      </div>
                       <div className="profile-email" style={{fontSize: '0.95rem', color: '#64748b', marginBottom: '0.5rem'}}>{user?.email}</div>
-                      <button onClick={() => { setDropdown(false); navigate('/'); }} style={{background: '#2563eb', color: '#fff', border: 'none', borderRadius: 6, padding: '0.5rem 1rem', marginTop: '0.3rem', cursor: 'pointer', fontWeight: 600}}>My Profile</button>
+                      <button onClick={() => { setDropdown(false); navigate('/'); }} style={{background: '#2563eb', color: '#fff', border: 'none', borderRadius: 6, padding: '0.5rem 1rem', marginTop: '0.3rem', cursor: 'pointer', fontWeight: 600}}>Agent</button>
                       <button onClick={handleLogout} style={{background: '#ef4444', color: '#fff', border: 'none', borderRadius: 6, padding: '0.5rem 1rem', marginTop: '0.3rem', cursor: 'pointer', fontWeight: 600}}>Logout</button>
                     </div>
                   )}
