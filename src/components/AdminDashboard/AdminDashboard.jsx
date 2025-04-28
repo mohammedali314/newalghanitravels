@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './AdminDashboard.scss';
-import { FiUsers, FiCalendar, FiPlusCircle, FiLogOut, FiMenu, FiSearch, FiEdit2, FiTrash2, FiPlus } from 'react-icons/fi';
+import { FiUsers, FiCalendar, FiPlusCircle, FiLogOut, FiMenu, FiSearch, FiPlus } from 'react-icons/fi';
 import { TbPlaneInflight } from 'react-icons/tb';
-import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import AddFlightForm from './AddFlightForm';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -10,12 +9,6 @@ import { useNavigate } from 'react-router-dom';
 const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState('flights');
   const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [stats, setStats] = useState({
-    totalFlights: 0,
-    totalAgents: 0,
-    totalBookings: 0,
-    activeFlights: 0
-  });
   const [flights, setFlights] = useState([]);
   const [agents, setAgents] = useState([]);
   const [bookings, setBookings] = useState([]);
@@ -25,7 +18,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     fetchData();
-  }, [activeSection]);
+  }, [activeSection, fetchData]);
 
   const fetchData = async () => {
     try {
@@ -78,16 +71,6 @@ const AdminDashboard = () => {
     { id: 'bookings', label: 'View Bookings', icon: <FiCalendar /> },
     { id: 'addFlight', label: 'Add Flight', icon: <FiPlusCircle /> }
   ];
-
-  const StatCard = ({ title, value, icon }) => (
-    <div className="stat-card">
-      <div className="stat-icon">{icon}</div>
-      <div className="stat-info">
-        <h3>{value}</h3>
-        <p>{title}</p>
-      </div>
-    </div>
-  );
 
   return (
     <div className="admin-dashboard">
