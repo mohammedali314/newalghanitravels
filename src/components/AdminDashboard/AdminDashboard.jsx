@@ -16,10 +16,6 @@ const AdminDashboard = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchData();
-  }, [activeSection, fetchData]);
-
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -39,6 +35,10 @@ const AdminDashboard = () => {
       setLoading(false);
     }
   };
+  
+  useEffect(() => {
+    fetchData();
+  }, [activeSection, fetchData]);
 
   const handleAgentStatus = async (agentId, status) => {
     try {
